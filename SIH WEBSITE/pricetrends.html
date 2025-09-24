@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commodity Prices Candlestick Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+</head>
+<body>
+  <h2>Commodity Prices with MSP</h2>
+  <canvas id="commodityChart" width="800" height="400"></canvas>
+
+  <script>
+    const ctx = document.getElementById('commodityChart').getContext('2d');
+
+    // Sample data (OHLC format: open, high, low, close)
+    const data = {
+      labels: ['Banana', 'Rice', 'Coffee Beans', 'Rubber'],
+      datasets: [
+        {
+          label: 'Price',
+          data: [
+            {o: 40, h: 45, l: 38, c: 42}, // Banana
+            {o: 60, h: 65, l: 55, c: 62}, // Rice
+            {o: 120, h: 130, l: 115, c: 125}, // Coffee Beans
+            {o: 80, h: 85, l: 75, c: 78}, // Rubber
+          ],
+          type: 'candlestick',
+          borderColor: 'black',
+          borderWidth: 1
+        },
+        {
+          label: 'MSP',
+          type: 'line',
+          data: [41, 60, 123, 77], // MSP values for each commodity
+          borderColor: 'red',
+          borderWidth: 2,
+          fill: false,
+          tension: 0.1
+        }
+      ]
+    };
+
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: { display: true }
+      },
+      scales: {
+        x: {
+          ticks: { font: { size: 14 } }
+        },
+        y: {
+          beginAtZero: false,
+          title: { display: true, text: 'Price (₹)' }
+        }
+      }
+    };
+
+    new Chart(ctx, {
+      data: data,
+      options: options
+    });
+  </script>
+</body>
+</html>

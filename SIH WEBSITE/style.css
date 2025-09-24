@@ -1,0 +1,148 @@
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: url('/background.jpg') no-repeat center center fixed;
+  background-size: cover;      /* make it cover full screen */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+}
+
+.navbar .logo img {
+  height: 50px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.navbar ul li a:hover {
+  color: #00ff99;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 60px;
+  gap: 30px;
+}
+
+.content {
+  max-width: 60%;
+  background: rgba(0,0,0,0.5);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #00ff99;
+}
+
+.content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* CHATBOT */
+.chatbot-box {
+  width: 30%;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.chatbot-box h2 {
+  margin-bottom: 15px;
+  color: #00ff99;
+  text-align: center;
+}
+
+.chat-window {
+  flex: 1;
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 8px;
+  height: 250px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+.chat-input button {
+  padding: 8px 15px;
+  border: none;
+  background: #00ff99;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.chat-input button:hover {
+  background: #00cc77;
+}
+
+/* FOOTER */
+footer {
+  background: rgba(0,0,0,0.8);
+  text-align: center;
+  padding: 20px;
+}
+.footer-links {
+  margin-bottom: 10px;
+}
+.footer-links a {
+  color: #00ff99;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+  main { flex-direction: column; align-items: center; }
+  .content { max-width: 90%; }
+  .chatbot-box { width: 90%; margin-top: 30px; }
+}
